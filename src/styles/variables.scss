@@ -1,0 +1,51 @@
+/**
+  В целом идея понятная, ты собрал все переменные в один файл, но проблема в том что очень часто такие цвета
+  будут использоваться в проекте один раз. Здесь складывают цвета, которые относятся к цветовой теме сайта в целом, типа
+  $primary, $secondary, $border-color и т.д.
+
+  Есть способ лучше, надо было использовать css variables
+  например тебе надо сделать кнопку
+
+  .button {
+    background: var(--button-bg-color, #000);
+    color: var(--button-color, #fff);
+  }
+
+  соответственно если тебе надо переопределить цвета кнопки далее ты добавляешь в сборку файлик overrides.scss и там пишешь
+  :root {
+    --button-bg-color: blue;
+    --button-color: red;
+  }
+
+  этот способ лучше, т.к. не требует собирать все цвета воедино, если есть общие цвета сайта, то добавится ещё файлик variables.scss
+  как у тебя, но там не будет scss переменных, будут тоже css variables
+  :root {
+    --primary-color: green;
+    --container-bg-color: #f90
+  }
+ */
+
+//**************************************************Цвета
+//_card.scss
+//старайся не использовать rgb вообще, если это допустимо, там где можно использовать hex, например #fff вместо rgb(255, 255, 255)
+//hex считается стандартным, rgb нет, используется обычно только для rgba() когда есть прозрачность, да и там можно rgba(#f90, 0.4)
+
+$primary-color: #fff;
+$secondary-color: #1A1B1E;
+$body-bg-color: #2b1055;
+$player-process: #F44336;
+$player-progress: rgba(#ffffff, 0.3);
+$playlist-playing: #f4d836;
+$playlist-state: #ddd;
+$playlist-name-group: #929292;
+$search-panel-button: #57ec57;
+
+//**************************************************Ссылки
+// _card.scss
+$card-album: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";
+
+// _player.scss
+$player-album: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";
+
+// _playlist.scss
+$playlist-miniature: "https://static.mp3xa.cc/album_images/400x400/nervy-samyjj-dorogojj-chast-1.jpg";
